@@ -1,0 +1,78 @@
+//ATM
+
+package prac;
+import java.util.*;
+public class waybuot {
+    static int bal = 0;
+    public static void main(String[] args){
+
+        
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("ATM\n");
+        System.out.println("[1] withdraw");
+        System.out.println("[2] deposit");
+        System.out.println("[3] balance");
+        System.out.println("[4] Exit");
+
+        for(int i=0; i<1;){
+        System.out.print("\nEnter your choice: ");
+        int wdrw = sc.nextInt();
+        
+        
+        switch(wdrw){
+            case 1:
+                if(bal > wdrw){
+                    Scanner wdrw1 = new Scanner(System.in);
+                    System.out.print("\nEnter amount to withdraw: ");
+                    int wdn = wdrw1.nextInt();
+                    int bal1 = bal-wdn;
+                    if(bal1<100){
+                    System.out.println("Please have at least 100php inside your ATM to withdraw");
+                    }
+                    else if(wdn<0){
+                        System.out.println("Negative value is not allowed. Please try agaian.");
+                        break;
+                    }
+                        
+                 else{
+                    bal = bal - wdn;
+                    System.out.println("you withdraw: " + wdn);
+                    i=0;
+                    }
+                break;
+
+                }else if(bal==0)
+                {
+                        System.out.println("\nYour current balance is: " + bal);
+                        i=0;
+            
+                }
+                break;
+
+            case 2:
+                Scanner input = new Scanner(System.in);
+                System.out.print("\nEnter your amount to deposit: ");
+                int dep = input.nextInt();
+                
+                if(dep<0){
+                    System.out.println("Negative value is not allowed. Please try agaian.");
+                    break;
+
+                }else
+                    bal = dep + bal;
+                    System.out.println("Your current balance: " + bal);
+                break;
+
+            case 3:
+                System.out.println("\nYour balance now is: " + bal);
+                break;
+
+            case 4:
+                System.exit(0);
+        
+            }
+        }
+    
+    }
+}
